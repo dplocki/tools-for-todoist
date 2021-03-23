@@ -11,7 +11,7 @@ project_id = project['id']
 project_items = list(
         item
         for item in api.items.state['items']
-        if item['project_id'] == project_id and item['parent_id'] == None
+        if item['project_id'] == project_id and item['parent_id'] == None and item['in_history'] == 0
     )
 
 print(random.choice(project_items).data['content'])
