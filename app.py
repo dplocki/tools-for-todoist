@@ -17,7 +17,10 @@ def random_task():
 
 @app.route("/plan_for_the_week")
 def plan_for_the_week():
-    return "plan_for_the_week"
+    from tools.plan_for_the_week import run
+
+    run(api, "Przydzielone")
+    return "<p>Done</p>"
 
 
 @app.route("/")
