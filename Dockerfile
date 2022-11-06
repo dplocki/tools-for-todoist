@@ -2,11 +2,15 @@ FROM python:3.8 as base
 
 # Base image to be reused
 RUN apt-get update
+
 WORKDIR /usr/src/app
-COPY ./requirements.txt ./requirements.txt
+
+COPY requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
 ENV FLASK_ENV="docker"
 ENV FLASK_APP=app.py
+
 EXPOSE 5000
 
 FROM base as debug

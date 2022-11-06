@@ -1,2 +1,2 @@
 flask
-todoist_api_python
+todoist-api-python
