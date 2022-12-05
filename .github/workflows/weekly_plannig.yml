@@ -1,0 +1,35 @@
+name: Sunday schedule planning
+
+on:
+  schedule:
+    - cron: 12 17 * * Sun
+
+jobs:
+  make_schedule_on_week:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Get sources
+        uses: actions/checkout@v2
+
+      - name: Installing dependencies
+        run: pip install --upgrade -r requirements.txt --quiet
+
+      - name: Make the script
+        run: |
+          cat << EOF > run.py
+          from todoist_api_python.api import TodoistAPI
+          from tools.plan_for_the_week import run
+
+          api = TodoistAPI('${{ secrets.TODOIST_TOKEN }}')
+          run(api, "Przydzielone")
+          EOF
+
+      - name: Run the script
+        run: python run.py
