@@ -27,7 +27,7 @@ jobs:
           from tools.random_task import run
 
           api = TodoistAPI('${{ secrets.TODOIST_TOKEN }}')
-          run(api, "Może kiedyś")
+          print(run(api, "Może kiedyś"))
           EOF
 
       - name: Run the script
