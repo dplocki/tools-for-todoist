@@ -10,7 +10,7 @@ def run(api, project_name):
         for item in api.get_tasks()
         if item.project_id == project_id
         and item.parent_id == None
-        and item.completed == False
+        and item.is_completed == False
     )
 
     return random.choice(project_items)
