@@ -23,6 +23,14 @@ def plan_for_the_week():
     return "<p>Done</p>"
 
 
+@app.route("/test")
+def test():
+    from tools.repoduce_by_forgetting_curve import run
+
+    items_count = run(api, "wishtoremember")
+    return f"<p>Affacted items: {items_count}</p>"
+
+
 @app.route("/")
 def hello_world():
     return f"""<!doctype html>
