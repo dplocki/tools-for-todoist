@@ -17,7 +17,7 @@ def generate_task_for_given(api, task, how_many_repeats: int):
             content=task.content,
             project_id=task.project_id,
             description=task.description,
-            due_string=f"+{iterval + 1} day",
+            due_string=f"+{iterval} day",
         )
 
 

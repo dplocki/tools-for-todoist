@@ -24,7 +24,7 @@ def plan_for_the_week():
 
 
 @app.route("/test")
-def test():
+def reproduce_by_forgetting_curve():
     from tools.reproduce_by_forgetting_curve import run
 
     items_count = run(api, "wishtoremember", 5)
@@ -40,10 +40,13 @@ def hello_world():
     <ul>
         <li><a href="{url_for('random_task')}">Random task</a></li>
         <li><a href="{url_for('plan_for_the_week')}">Plan for the week</a></li>
+        <li><a href="{url_for('reproduce_by_forgetting_curve')}">Reproduce by forgetting curve</a></li>
     </ul>
 </body>
 """
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    import os
+
+    app.run(debug=os.getenv("DEBUG_MODE") != None, host="0.0.0.0", port=5000)
