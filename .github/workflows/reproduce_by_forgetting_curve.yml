@@ -1,8 +1,6 @@
 name: Reproduce by forgetting curve
 
 on:  
-  push:
-  pull_request:
   schedule:
     - cron: '36 18 * * *'
 
