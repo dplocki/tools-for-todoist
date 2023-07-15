@@ -1,4 +1,4 @@
-FROM python:3.8 as base
+FROM python:3.11 as base
 
 # Base image to be reused
 RUN apt-get update
@@ -13,6 +13,7 @@ ENV FLASK_APP=app.py
 
 EXPOSE 5000
 
+
 FROM base as debug
 # Install dev dependencies for debugging
 RUN pip install debugpy
@@ -21,8 +22,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED 1
 
+
 FROM base as prod
 # Production image
+
 RUN pip install gunicorn
+
 COPY . .
+
 CMD ["gunicorn", "--reload", "--bind", "0.0.0.0:5000", "app:app"]
