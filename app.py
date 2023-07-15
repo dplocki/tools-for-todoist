@@ -23,7 +23,7 @@ def plan_for_the_week():
     return "<p>Done</p>"
 
 
-@app.route("/test")
+@app.route("/reproduce_by_forgetting_curve")
 def reproduce_by_forgetting_curve():
     from tools.reproduce_by_forgetting_curve import run
 
