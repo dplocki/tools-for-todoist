@@ -25,9 +25,9 @@ def plan_for_the_week():
 
 @app.route("/test")
 def test():
-    from tools.repoduce_by_forgetting_curve import run
+    from tools.reproduce_by_forgetting_curve import run
 
-    items_count = run(api, "wishtoremember")
+    items_count = run(api, "wishtoremember", 5)
     return f"<p>Affacted items: {items_count}</p>"
 
 
