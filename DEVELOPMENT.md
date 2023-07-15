@@ -12,7 +12,7 @@ Initially the tools were
 ## Changes in project
 
 * Introduce docker image, both for working on tools 
-* Due to how Docker is working, I have decied to introduce the web GUI for tools
+* I have decide to introduce the web GUI for tools
 
     The docker image and VS Code settings are base on article [Dockerize a Flask app and debug with VSCode](https://dev.to/pacheco/dockerize-a-flask-app-and-debug-with-vscode-34i1).
 
@@ -24,4 +24,4 @@ Use the command:
 docker compose up -d
 ```
 
-Docker image will run the web on adress: [localhost:5000](http://localhost:5000/).
+Docker image will run the web on address: [localhost:5000](http://localhost:5000/).
