@@ -27,8 +27,8 @@ def get_all_task_for_given_label(api, label_name: str):
     if label_name in item.labels)
 
 
-def remove_label_from_task(api, task, label_name):
-    api.update_task(task_id=task.id, label=[label for label in task.labels if label != label_name])
+def remove_label_from_task(api, task):
+    return api.close_task(task_id=task.id)
 
 
 def run(api, label_name: str, how_many_repeats) -> int:
@@ -36,7 +36,7 @@ def run(api, label_name: str, how_many_repeats) -> int:
 
     for task in get_all_task_for_given_label(api, label_name):
         generate_task_for_given(api, task, how_many_repeats)
-        remove_label_from_task(api, task, label_name)
+        remove_label_from_task(api, task)
         count += 1
 
     return count
