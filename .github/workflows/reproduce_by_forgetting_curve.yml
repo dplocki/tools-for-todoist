@@ -1,8 +1,7 @@
 name: Reproduce by forgetting curve
 
-on:  
-  schedule:
-    - cron: '36 18 * * *'
+on:
+  workflow_dispatch:
 
 jobs:
   make_schedule_on_week:
