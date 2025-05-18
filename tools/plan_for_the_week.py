@@ -14,7 +14,9 @@ def generate():
 
 
 def run(api, project_name):
-    project = next(p for p in api.get_projects() if p.name == project_name)
+    projects = api.get_projects()
+    print(projects)
+    project = next(p for p in projects if p.name == project_name)
     project_id = project.id
 
     pass_in_next_day = False
